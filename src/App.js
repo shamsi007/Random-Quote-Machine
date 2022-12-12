@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import ButtonGroup from './components/ButtonGroup';
+import Quote from './components/Quote';
 
 function App() {
+  const [quote,setQuote] = useState('');
+  useEffect(() => {
+    getNewQuote();
+  }, []);
+  const getNewQuote = () => {
+    setQuote({ quote});
+    fetch('https://api.quotable.io/random').then(res => res.json())
+      .then(quote => {
+        setQuote(quote);
+      })
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <ButtonGroup quote={quote} newQuote={getNewQuote}/>
+      <Quote quote={quote}/>
     </div>
   );
 }
