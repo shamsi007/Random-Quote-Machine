@@ -16,7 +16,6 @@ function App() {
   };
   return (
     <div className='container'>
-      {/* <ButtonGroup quote={quote} newQuote={getNewQuote}/> */}
       <Quote quote={quote} newQuote={getNewQuote}/>
     </div>
   );
