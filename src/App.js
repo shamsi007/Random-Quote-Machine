@@ -1,6 +1,5 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import ButtonGroup from './components/ButtonGroup';
 import Quote from './components/Quote';
 
 function App() {
@@ -17,8 +16,8 @@ function App() {
   };
   return (
     <div className='container'>
-      <ButtonGroup quote={quote} newQuote={getNewQuote}/>
-      <Quote quote={quote}/>
+      {/* <ButtonGroup quote={quote} newQuote={getNewQuote}/> */}
+      <Quote quote={quote} newQuote={getNewQuote}/>
     </div>
   );
 }
